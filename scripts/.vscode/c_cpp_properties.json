@@ -1,0 +1,42 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/ttsitos/catkin_ws/devel/include/**",
+        "/home/ttsitos/ur_ws/devel/include/**",
+        "/opt/ros/melodic/include/**",
+        "/home/ttsitos/catkin_ws/src/ar_track_alvar/ar_track_alvar/include/**",
+        "/home/ttsitos/catkin_ws/src/ros_astra_camera/include/**",
+        "/home/ttsitos/catkin_ws/src/cartesian_trajectory_tracking/include/**",
+        "/home/ttsitos/catkin_ws/src/trajectory_replication/control_trajectory_execution/include/**",
+        "/home/ttsitos/ur_ws/src/Universal_Robots_ROS_Driver/controller_stopper/include/**",
+        "/home/ttsitos/catkin_ws/src/demo_motion_demonstration/include/**",
+        "/home/ttsitos/catkin_ws/src/openpose_3D_localization/frame_transpose/include/**",
+        "/home/ttsitos/catkin_ws/src/hrc_study_tsitosetal/include/**",
+        "/home/ttsitos/catkin_ws/src/kalman_filter_pkg/include/**",
+        "/home/ttsitos/catkin_ws/src/openpose_3D_localization/keypoint_3d_matching/include/**",
+        "/home/ttsitos/catkin_ws/src/trajectory_replication/moveit_trajectory_execution/include/**",
+        "/home/ttsitos/catkin_ws/src/object_reaching/include/**",
+        "/home/ttsitos/catkin_ws/src/openpose_ros/openpose_ros/include/**",
+        "/home/ttsitos/catkin_ws/src/schunk_grippers/schunk_ezn64/include/**",
+        "/home/ttsitos/catkin_ws/src/schunk_grippers/schunk_pg70/include/**",
+        "/home/ttsitos/catkin_ws/src/manos/manos_cartesian_control/ur3_cartesian_velocity_control/include/**",
+        "/home/ttsitos/catkin_ws/src/trajectory_process_utils/ur3_trajectory_process/include/**",
+        "/home/ttsitos/ur_ws/src/Universal_Robots_ROS_Driver/ur_calibration/include/**",
+        "/home/ttsitos/ur_ws/src/fmauch_universal_robot/ur_kinematics/include/**",
+        "/home/ttsitos/ur_ws/src/Universal_Robots_ROS_Driver/ur_robot_driver/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

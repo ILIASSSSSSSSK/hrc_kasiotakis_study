@@ -1,0 +1,181 @@
+[33mcommit 7be82fd814c3b59c19536d94833f100ab919f178[m[33m ([m[1;36mHEAD -> [m[1;32minit-pos+various-fix[m[33m, [m[1;31morigin/init-pos+various-fix[m[33m)[m
+Author: Thanasists <thtsitos@gmail.com>
+Date:   Thu Sep 7 16:02:57 2023 +0300
+
+    Hardware debbuging+ change some files path
+
+[33mcommit 11dfaffcfb600a4cdb4591c33c4ea20939e0c88f[m
+Author: StavrouNikolas <116565556+StavrouNi@users.noreply.github.com>
+Date:   Tue Sep 5 23:56:49 2023 +0300
+
+    Update utils.py
+
+[33mcommit 6abbf7e33010d7ad3c442d8b747c5ec6368c56d0[m
+Author: StavrouNikolas <116565556+StavrouNi@users.noreply.github.com>
+Date:   Tue Sep 5 23:53:37 2023 +0300
+
+    Update sac_discrete_agent.py
+
+[33mcommit 837a4f01836c05e44d8ec09dd6d6a7548972328f[m
+Author: StavrouNikolas <116565556+StavrouNi@users.noreply.github.com>
+Date:   Tue Sep 5 23:47:13 2023 +0300
+
+    Update networks_discrete.py
+
+[33mcommit b19c6eb86b98a27fafcde8b00ae724ee32d0a114[m
+Author: StavrouNikolas <116565556+StavrouNi@users.noreply.github.com>
+Date:   Tue Sep 5 23:43:42 2023 +0300
+
+    Update game_control_sign.py
+
+[33mcommit d875184069c928da586b124ebb608e7ea54b2f25[m
+Author: StavrouNikolas <116565556+StavrouNi@users.noreply.github.com>
+Date:   Tue Sep 5 23:25:42 2023 +0300
+
+    Update rl_params.yaml
+
+[33mcommit 701662d0e8392f7178368a8e54e6de0aad1ea611[m
+Author: StavrouNikolas <116565556+StavrouNi@users.noreply.github.com>
+Date:   Tue Sep 5 23:14:33 2023 +0300
+
+    Update ExperttoDemoBufferTestFunc.py
+
+[33mcommit 27db3198980c7a5a6ae81d9660200a1bf11a02e1[m
+Author: StavrouNikolas <116565556+StavrouNi@users.noreply.github.com>
+Date:   Tue Sep 5 23:14:15 2023 +0300
+
+    Create ExperttoDemoBufferTestFunc.py
+
+[33mcommit cd854d0d2c7db9336a6c81f01f62dc9b03154560[m
+Author: StavrouNikolas <116565556+StavrouNi@users.noreply.github.com>
+Date:   Tue Sep 5 23:13:35 2023 +0300
+
+    Delete scripts/scripts directory
+
+[33mcommit 35fdf422208dd1101c3bf8a2e679b7322e838740[m
+Author: StavrouNikolas <116565556+StavrouNi@users.noreply.github.com>
+Date:   Tue Sep 5 23:12:38 2023 +0300
+
+    Create ExperttoDemoBufferTestFunc.py
+
+[33mcommit 59740111f66dc9b3f8840772f4c89864320328c3[m
+Author: StavrouNikolas <116565556+StavrouNi@users.noreply.github.com>
+Date:   Tue Sep 5 23:03:34 2023 +0300
+
+    Update rl_params.yaml
+
+[33mcommit 28c1d02ae3bc3ec719c217f6efb5bbccab207c69[m
+Author: George Stavrinos <gstavrinos@protonmail.com>
+Date:   Thu Jun 8 20:30:02 2023 +0300
+
+    Added a laucnh file that starts the game, along with gazebo and the simple init position script
+
+[33mcommit ebc473bce933d3bcfa4638dbe3b175c082202381[m
+Author: George Stavrinos <gstavrinos@protonmail.com>
+Date:   Thu Jun 8 20:29:42 2023 +0300
+
+    Added simple init position script for simulation
+
+[33mcommit 2cff03988557ee3d08655cc758250f8949d69eac[m
+Author: George Stavrinos <gstavrinos@protonmail.com>
+Date:   Thu Jun 8 20:29:25 2023 +0300
+
+    Added a bit more sane default params
+
+[33mcommit 6d60ae60d068f4bf759d868355958f0b23c30113[m
+Author: George Stavrinos <gstavrinos@protonmail.com>
+Date:   Thu Jun 8 20:28:26 2023 +0300
+
+    Added simple .gitignore
+
+[33mcommit 46e8fe231769c229146dfd03e368a83dbdaad0cf[m
+Author: George Stavrinos <gstavrinos@protonmail.com>
+Date:   Thu Jun 8 20:27:58 2023 +0300
+
+    Added missing dependency
+
+[33mcommit 0bd86e77f708b47e7d4398103477bb1fe01031a0[m
+Author: George Stavrinos <gstavrinos@protonmail.com>
+Date:   Mon May 22 19:54:45 2023 +0300
+
+    Removed catkin python setup
+
+[33mcommit ac2d37716f20e7500ccc2a6552ddea2b9af02b1d[m
+Author: George Stavrinos <gstavrinos@protonmail.com>
+Date:   Sun May 21 10:38:14 2023 +0300
+
+    Dynamically use the correct home dir
+
+[33mcommit 2e0d088b387d80b82fa0fa4c8de9a1a6ceccc131[m
+Author: George Stavrinos <gstavrinos@protonmail.com>
+Date:   Sun May 21 10:37:14 2023 +0300
+
+    The game now supports simulation (+pkg name change)
+
+[33mcommit 0ef584edf01e3b0c96f2223bcccaf651cde0abbc[m
+Author: George Stavrinos <gstavrinos@protonmail.com>
+Date:   Sun May 21 10:36:32 2023 +0300
+
+    Pkg name change
+
+[33mcommit aa4a67cc81141e25aa44a3330f0bc89640940f30[m
+Author: George Stavrinos <gstavrinos@protonmail.com>
+Date:   Sun May 21 10:36:06 2023 +0300
+
+    Alternative way of installing deps
+
+[33mcommit c2b03fe15e2484652af53a66017d272b2a79e255[m
+Author: George Stavrinos <gstavrinos@protonmail.com>
+Date:   Sun May 21 10:35:31 2023 +0300
+
+    Fixed msg imports
+
+[33mcommit 7fb6cc567812454e548c2e128aa8d9e7b3bbe04e[m
+Author: George Stavrinos <gstavrinos@protonmail.com>
+Date:   Sun May 21 10:26:40 2023 +0300
+
+    Fixed msg import
+
+[33mcommit ec80834dc4f7b5c9f3f5f20dec10d338e50ce0f6[m
+Author: George Stavrinos <gstavrinos@protonmail.com>
+Date:   Sun May 21 10:25:50 2023 +0300
+
+    Changes based on the new package name
+
+[33mcommit 806516bd4282f31678bc45f1f5d027c06184a64b[m
+Author: George Stavrinos <gstavrinos@protonmail.com>
+Date:   Sun May 21 10:23:36 2023 +0300
+
+    Some extra info on README
+
+[33mcommit 82f4daabace9ca90732f491d2e18aaf0b58a9588[m
+Author: George Stavrinos <gstavrinos@protonmail.com>
+Date:   Sun May 21 10:23:14 2023 +0300
+
+    ROS package name and dependencies
+
+[33mcommit 62dab8624464713bc0a9634c28d0963b886fc2a8[m
+Author: mdagiogl <mdagiogl@gmail.com>
+Date:   Fri Nov 25 11:29:06 2022 +0200
+
+    Update README.md
+    
+    arXiv citation added.
+
+[33mcommit ef1fc745ac93c5910dfde493e02b37c89dcc44a8[m
+Author: ThanasisTs <thtsitos@gmail.com>
+Date:   Mon Nov 21 22:06:03 2022 +0100
+
+    first commit
+
+[33mcommit 63cb48f288921a196800eb922596587e37130929[m
+Author: George Stavrinos <gstavrinos@protonmail.com>
+Date:   Mon Nov 21 17:29:41 2022 +0200
+
+    Update README.md
+
+[33mcommit a9a54afa39cb9eed5ba0cc66cf6d8ee585819c7a[m
+Author: George Stavrinos <gstavrinos@protonmail.com>
+Date:   Mon Nov 21 17:28:56 2022 +0200
+
+    Initial commit
