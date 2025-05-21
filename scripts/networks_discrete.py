@@ -212,6 +212,7 @@ class Actor(nn.Module):
             torch.save(self.state_dict(), self.checkpoint_file)
 
     def load_checkpoint(self):
+        print("I load weights")
         if rospy.get_param("/rl_control/Game/initialized_agent",False):
             if rospy.get_param("/rl_control/Game/lfd_participant_gameplay",False):
                 self.load_state_dict(torch.load(rospy.get_param("/rl_control/Game/lfd_initialized_agent_dir")+rospy.get_param("/rl_control/Game/actor_name")))

@@ -40,6 +40,30 @@ class RL_Control:
 		self.cyclic_pos=0
 		self.random_pos=rospy.get_param("rl_control/Game/random_position", True)
 		self.num_of_states=rospy.get_param("rl_control/Game/number_of_states",4)
+		self.normalized=rospy.get_param("rl_control/Experiment/normalized",False)
+		if self.normalized==True:
+			rospy.logwarn("The user has selected normalized features")
+		else:
+			rospy.logwarn("User has selected the real values of the features")
+		self.max_vel_x=rospy.get_param("rl_control/Experiment/ee_vel_x_max",0.2)
+		self.min_vel_x=rospy.get_param("rl_control/Experiment/ee_vel_x_min",-0.2)
+		self.max_vel_y=rospy.get_param("rl_control/Experiment/ee_vel_y_max",0.2)
+		self.min_vel_y=rospy.get_param("rl_control/Experiment/ee_vel_y_min",0.2)
+		self.min_x=rospy.get_param("robot_movement_generation/min_x",-0.356)
+		self.min_y=rospy.get_param("robot_movement_generation/min_y",0.162)
+		self.max_x=rospy.get_param("robot_movement_generation/max_x",-0.174)
+		self.max_y=rospy.get_param("robot_movement_generation/max_y",0.343)
+		#if there is no normalization, don't normalize the feautures in get_state()
+		if self.normalized==False:
+			self.min_x=0
+			self.max_x=1
+			self.min_y=0
+			self.max_y=1
+			self.max_vel_x=1
+			self.min_vel_x=0
+			self.min_vel_y=0
+			self.max_vel_y=1
+			rospy.logwarn("User has selected the real values of the features")
 		if self.train_model:
 			self.load_model_for_training = rospy.get_param("rl_control/Game/load_model_training", False)
 			if self.load_model_for_training:
@@ -366,7 +390,7 @@ class RL_Control:
 			if not self.test_agent_flag:
 				self.save_experience([self.observation, self.agent_action, self.reward, self.observation_, self.done])
 			
-			total_travelled_distance += distance.euclidean(self.observation_[:2], self.observation[:2]) 
+			total_travelled_distance += distance.euclidean([self.observation_[0]*(self.max_x-self.min_x)+self.min_x,self.observation_[1]*(self.max_y-self.min_y)+self.min_y], [self.observation[0]*(self.max_x-self.min_x)+self.min_x,self.observation[1]*(self.max_y-self.min_y)+self.min_y]) 
 			
 			if self.done:
 				self.end_time = rospy.get_time()
@@ -510,11 +534,10 @@ class RL_Control:
 	def get_state(self):
 		#we removed the velocities (they were the last two elements)
 		
-		if self.num_of_states==4:
-            
-		 return np.array([self.ur3_state.pose.position.x, self.ur3_state.pose.position.y, self.ur3_state.twist.linear.x, self.ur3_state.twist.linear.y])
-		elif self.num_of_states==2:
-		 return np.array([self.ur3_state.pose.position.x, self.ur3_state.pose.position.y])
+		if (self.num_of_states==4):
+		 return np.array([((self.ur3_state.pose.position.x-self.min_x)/(self.max_x-self.min_x)), ((self.ur3_state.pose.position.y-self.min_y)/(self.max_y-self.min_y)), ((self.ur3_state.twist.linear.x-self.min_vel_x)/(self.max_vel_x-self.min_vel_x)), ((self.ur3_state.twist.linear.y-self.min_vel_y)/(self.max_vel_y-self.min_vel_y))])
+		elif (self.num_of_states==2):
+		 return np.array([((self.ur3_state.pose.position.x-self.min_x)/(self.max_x-self.min_x)), ((self.ur3_state.pose.position.y-self.min_y)/(self.max_y-self.min_y))])
 
 	def save_experience(self, interaction):
 		self.agent.memory.add(*interaction)
@@ -558,8 +581,8 @@ class RL_Control:
 		self.agent.q2_loss_history=[]
 		self.agent.targetqhistory=[]
 
-		if self.train_model and i_episode >= self.start_training_on_episode:
-			if i_episode % self.agent.update_interval == 0:
+		if (self.train_model and i_episode >= self.start_training_on_episode)or(self.train_model and rospy.get_param("/rl_control/Experiment/update_per_game",False)):
+			if (i_episode % self.agent.update_interval == 0)or((len(self.agent.memory.storage)>=rospy.get_param("/rl_control/SAC/batch_size",256)) and rospy.get_param("/rl_control/Experiment/update_per_game",False)):
 				start_training_time = rospy.get_time()
 				train_msg = Bool()
 				train_msg.data = True
@@ -601,6 +624,8 @@ class RL_Control:
 
 				remaining_wait_time = self.rest_period - (rospy.get_time() - start_training_time)
 				start_remaining_time = rospy.get_time()
+				if ((i_episode+1)%10)==0:
+					remaining_wait_time=120
 
 				while rospy.get_time() - start_remaining_time < remaining_wait_time:
 					pass
@@ -611,7 +636,10 @@ class RL_Control:
 
 	def compute_update_cycles(self):
 		if self.scheduling == 'uniform':
-			self.update_cycles = math.ceil(self.total_update_cycles / math.ceil(self.max_episodes / self.agent.update_interval))
+			if (rospy.get_param("/rl_control/Experiment/update_per_game",False)): 
+				self.update_cycles = math.ceil(self.total_update_cycles / math.ceil(self.max_episodes / self.agent.update_interval))/10
+			else:
+				self.update_cycles = math.ceil(self.total_update_cycles / math.ceil(self.max_episodes / self.agent.update_interval))
 		elif self.scheduling == 'descending':
 			self.update_cycles /= 2
 		else:
@@ -702,7 +730,8 @@ if __name__ == "__main__":
 
 	
 	start_experiment_time = rospy.get_time()
-	spawn_marker('simple_cylinder',-0.333,-0.346)
+	if (rospy.get_param("/rl_control/Game/gazebo_simulation",False)):
+		spawn_marker('simple_cylinder',-0.333,-0.346)
        
 
 	game_loop(game)

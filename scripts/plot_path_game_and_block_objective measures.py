@@ -7,6 +7,18 @@ from matplotlib.lines import Line2D
 import plotly.express as px
 import plotly.graph_objects as go
 from plotly.offline import plot
+import plotly.io as pio
+
+data_normalized=True
+normalized=True
+max_x= -0.174 #-0.179
+min_x= -0.356 #-0.359
+max_y= 0.343
+min_y= 0.162
+ee_vel_x_max= 0.012
+ee_vel_y_max= 0.07
+ee_vel_x_min= -0.011
+ee_vel_y_min=-0.014
 #select the experiment 
 file_rl_data=[#"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_1/data/rl_test_data.csv",
 #"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_2/data/rl_test_data.csv",
@@ -15,14 +27,28 @@ file_rl_data=[#"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/ga
 #"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_5/data/rl_test_data.csv"
 #"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_6/data/rl_test_data.csv",
 #"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_16/data/rl_test_data.csv",
-"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_19/data/rl_test_data.csv",
-"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_20/data/rl_test_data.csv",
+#"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_19/data/rl_test_data.csv",
+#"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_37/data/rl_test_data.csv",
+#"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_38/data/rl_test_data.csv",
+#"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_39/data/rl_test_data.csv",
+#"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_40/data/rl_test_data.csv",
+#"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_41/data/rl_test_data.csv",
 #"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_31/data/rl_test_data.csv",
 #"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_32/data/rl_test_data.csv",
 #"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_33/data/rl_test_data.csv",
 #"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_34/data/rl_test_data.csv",
 #"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_35/data/rl_test_data.csv",
 #"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_36/data/rl_test_data.csv",
+#"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_46/data/rl_test_data.csv",
+#"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_45/data/rl_test_data.csv",
+#"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_44/data/rl_test_data.csv",
+#"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_43/data/rl_test_data.csv",
+#"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_42/data/rl_test_data.csv",
+#"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/35K_every10_uniform_200ms_itsmetheexpert_LfD_TL_3/data/rl_test_data.csv",
+#"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/35K_every10_uniform_200ms_itsmetheexpert_LfD_TL_2/data/rl_test_data.csv",
+#"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/35K_every10_uniform_200ms_itsmetheexpert_LfD_TL_1/data/rl_test_data.csv",
+#"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/35K_every10_uniform_200ms_itsmetheexpert_LfD_TL_4/data/rl_test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/35K_every10_uniform_200ms_itsmetheexpert_LfD_TL_8/data/rl_test_data.csv",
 ]
 file_data=[#"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_1/data/test_data.csv",
 #"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_2/data/test_data.csv",
@@ -31,15 +57,111 @@ file_data=[#"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games
 #"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_5/data/test_data.csv"
 #"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_6/data/test_data.csv",
 #"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_16/data/test_data.csv",
-"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_19/data/test_data.csv",
-"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_20/data/test_data.csv",
+#"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_19/data/test_data.csv",
+#"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_37/data/test_data.csv",
+#"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_38/data/test_data.csv",
+#"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_39/data/test_data.csv",
+#"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_40/data/test_data.csv",
+#"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_41/data/test_data.csv",
 #"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_31/data/test_data.csv",
 #"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_32/data/test_data.csv",
 #"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_33/data/test_data.csv",
 #"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_34/data/test_data.csv",
 #"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_35/data/test_data.csv",
 #"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_36/data/test_data.csv",
+#"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_46/data/test_data.csv",
+#"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_45/data/test_data.csv",
+#"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_44/data/test_data.csv",
+#"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_43/data/test_data.csv",
+#"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_42/data/test_data.csv",
+#"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/35K_every10_uniform_200ms_itsmetheexpert_LfD_TL_3/data/test_data.csv",
+#"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/35K_every10_uniform_200ms_itsmetheexpert_LfD_TL_2/data/test_data.csv",
+#"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/35K_every10_uniform_200ms_itsmetheexpert_LfD_TL_1/data/test_data.csv",
+#"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/35K_every10_uniform_200ms_itsmetheexpert_LfD_TL_4/data/test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/35K_every10_uniform_200ms_itsmetheexpert_LfD_TL_8/data/test_data.csv",
+
 ]
+
+#comparison between different methods 
+method_1_data=[
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/35K_every10_uniform_200ms_itsmetheexpert_LfD_TL_8/data/test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/35K_every10_uniform_200ms_itsmetheexpert_LfD_TL_7/data/test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/35K_every10_uniform_200ms_itsmetheexpert_LfD_TL_6/data/test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/35K_every10_uniform_200ms_itsmetheexpert_LfD_TL_5/data/test_data.csv",    
+]
+method_2_data=[
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/35K_every10_uniform_200ms_itsmetheexpert_LfD_TL_4/data/test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/35K_every10_uniform_200ms_itsmetheexpert_LfD_TL_3/data/test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/35K_every10_uniform_200ms_itsmetheexpert_LfD_TL_2/data/test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/35K_every10_uniform_200ms_itsmetheexpert_LfD_TL_1/data/test_data.csv",
+]
+
+method_3_data=["/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_25/data/test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_26/data/test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_27/data/test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_28/data/test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_29/data/test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_30/data/test_data.csv"]
+
+method_4_data=["/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_31/data/test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_32/data/test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_33/data/test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_34/data/test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_35/data/test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_36/data/test_data.csv"]
+
+method_5_data=["/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_41/data/test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_37/data/test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_38/data/test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_39/data/test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_40/data/test_data.csv"]
+
+method_6_data=["/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_42/data/test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_43/data/test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_44/data/test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_45/data/test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_46/data/test_data.csv"]
+
+
+method_1_rl_data=[
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/35K_every10_uniform_200ms_itsmetheexpert_LfD_TL_8/data/rl_test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/35K_every10_uniform_200ms_itsmetheexpert_LfD_TL_7/data/rl_test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/35K_every10_uniform_200ms_itsmetheexpert_LfD_TL_6/data/rl_test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/35K_every10_uniform_200ms_itsmetheexpert_LfD_TL_5/data/rl_test_data.csv",    
+]
+method_2_rl_data=[
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/35K_every10_uniform_200ms_itsmetheexpert_LfD_TL_4/data/rl_test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/35K_every10_uniform_200ms_itsmetheexpert_LfD_TL_3/data/rl_test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/35K_every10_uniform_200ms_itsmetheexpert_LfD_TL_2/data/rl_test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/35K_every10_uniform_200ms_itsmetheexpert_LfD_TL_1/data/rl_test_data.csv",
+]
+
+method_3_rl_data=["/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_25/data/rl_test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_26/data/rl_test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_27/data/rl_test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_28/data/rl_test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_29/data/rl_test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_30/data/rl_test_data.csv"]
+
+method_4_rl_data=["/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_31/data/rl_test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_32/data/rl_test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_33/data/rl_test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_34/data/rl_test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_35/data/rl_test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_36/data/rl_test_data.csv"]
+
+method_5_rl_data=["/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_41/data/rl_test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_37/data/rl_test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_38/data/rl_test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_39/data/rl_test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_40/data/rl_test_data.csv"]
+
+method_6_rl_data=["/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_42/data/rl_test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_43/data/rl_test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_44/data/rl_test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_45/data/rl_test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_46/data/rl_test_data.csv"]
+
 #plot graph of trajectory for selected game and block
 
 def plot_path_graph(files,block=2,game=10):
@@ -83,12 +205,19 @@ def plot_path_graph(files,block=2,game=10):
  	ee_pos_y_prev="ee_pos_y_prev"
  	ee_pos_x_next="ee_pos_x_next"
  	ee_pos_y_next="ee_pos_y_next"
+ 	
+ 	if data_normalized:
+ 	 	df[ee_pos_x_prev] = df[ee_pos_x_prev] * (max_x-min_x)+min_x
+ 	 	df[ee_pos_y_prev] = df[ee_pos_y_prev] *(max_y-min_y)+min_y
+ 	 	df[ee_pos_x_next] = df[ee_pos_x_next] * (max_x-min_x)+min_x
+ 	 	df[ee_pos_y_next] = df[ee_pos_y_next] *(max_y-min_y)+min_y
+ 	
  	g=0
  	all_games_indexes=[0]
  	positions_x=[]
  	positions_y=[]
  	for i in range(len(df[ee_pos_y_prev])):
- 		if (df[ee_pos_x_prev][i]==0.0)and(df[ee_pos_x_next][i]==0.0)and(df[ee_pos_y_prev][i]==0.0)and(df[ee_pos_y_next][i]==0.0):
+ 		if ((not normalized)and((df[ee_pos_x_prev][i]==(0.0))and(df[ee_pos_x_next][i]==(0.0))and(df[ee_pos_y_prev][i]==(0.0))and(df[ee_pos_y_next][i]==(0.0))))or((normalized)and((df[ee_pos_x_prev][i]==(0.0*(max_x-min_x)+min_x))and(df[ee_pos_x_next][i]==(0.0* (max_x-min_x)+min_x))and(df[ee_pos_y_prev][i]==(0.0* (max_y-min_y)+min_y))and(df[ee_pos_y_next][i]==(0.0* (max_y-min_y)+min_y)))):
  			all_games_indexes.append(i)
  	game_id=(block-1)*10+(game-1)
  	for i in range(all_games_indexes[game_id]+1,all_games_indexes[game_id+1]):
@@ -140,10 +269,12 @@ def plot_path_graph(files,block=2,game=10):
  plt.tight_layout()
  plt.show()
 
-def plot_wins(files):
+def plot_wins(files,compare):
 	#calculate wins for each block
 	wins_per_file=[]
+	
 	for file in files:
+		
 		df1=pd.read_csv(file)
 		game_rew=df1["Rewards"]
 		wins_per_block=[]
@@ -174,17 +305,24 @@ def plot_wins(files):
 	print("Std Wins: ")
 	print(std_wins)
 	blocks=range(0,8)
+	if compare:
+		return df2["Wins"], df2["Blocks"], avg_wins, std_wins, blocks
 	plt.plot(blocks, avg_wins, color='tab:blue', label='stim')
 	plt.fill_between(blocks, avg_wins - std_wins, avg_wins + std_wins, color='tab:blue', alpha=0.3)
 	plt.xlabel("Block")
 	plt.ylabel("#wins")
 	plt.title('Wins per Block')
 	plt.grid(True)
+	plt.ylim(0,11)
 	plt.show()
-	fig=fig = px.box(df2, x="Blocks", y="Wins",title="Wins per Block")
-	plot(fig,auto_open=True)
+	fig = px.box(df2, x="Blocks", y="Wins",title="Average Wins per Block")
+	# Define layout with y-axis range
+	fig.update_layout(yaxis_range=[0, 11])
+	plot(fig,filename='fig1.html',auto_open=True)
 
-def plot_rewards_and_norm_dist(files):
+	#pio.show(fig)
+
+def plot_rewards_and_norm_dist(files,compare):
 	#norm_dist=tot_dist*tot_time/max_time
 	
 	rewards_per_file=[]
@@ -221,16 +359,35 @@ def plot_rewards_and_norm_dist(files):
 	std_rewards=[]
 	avg_norm_dist=[]
 	std_norm_dist=[]
+	df3=[]
+	df4=[]
 	if len(files)==1:
+		block_id=[]
+		block=0
 		for i in range(len(rew_blocks_for_all)):
 			avg_r=np.mean(rew_blocks_for_all[i])
 			std_r=np.std(rew_blocks_for_all[i])
 			avg_nd=np.mean(norm_dist_block_for_all[i])
 			std_nd=np.std(norm_dist_block_for_all[i])
+			for j in range(len(rew_blocks_for_all[i])):
+				block_id.append(block)
 			avg_rewards.append(avg_r)
 			std_rewards.append(std_r)
 			avg_norm_dist.append(avg_nd)
 			std_norm_dist.append(std_nd)
+			block+=1
+		#print(rew_blocks_for_all)
+		#print(np.array(rew_blocks_for_all).flatten().tolist())
+		df3=pd.DataFrame({'Rewards': np.array(rew_blocks_for_all).flatten().tolist(), 'Blocks': block_id})
+		df4=pd.DataFrame({'Norm_Dist': np.array(norm_dist_block_for_all).flatten().tolist(), 'Blocks': block_id})
+		if (not compare):
+			fig3=px.box(df3, x="Blocks", y="Rewards",title="Average Reward per Block")
+			fig3.update_layout(yaxis_range=[0, 165])
+			plot(fig3,filename='fig2.html',auto_open=True)
+		
+			fig2 = px.box(df4, x="Blocks", y="Norm_Dist",title="Average Normalized Distance per Block")
+			fig2.update_layout(yaxis_range=[0, 3])
+			plot(fig2,filename='fig3.html',auto_open=True)
 
 	else:
 		rewards_block_diagram=[]
@@ -254,10 +411,15 @@ def plot_rewards_and_norm_dist(files):
 			block+=1
 		df3=pd.DataFrame({'Rewards': rewards_block_diagram, 'Blocks': block_id})
 		df4=pd.DataFrame({'Norm_Dist': norm_dist_block_diagram, 'Blocks': block_id})
-		fig3=px.box(df3, x="Blocks", y="Rewards",title="Reward per Block")
-		plot(fig3,filename='fig3.html',auto_open=True)
-		fig2 = px.box(df4, x="Blocks", y="Norm_Dist",title="Normalized Distance per Block")
-		plot(fig2,filename='fig2.html',auto_open=True)
+		if (not compare):
+			fig3=px.box(df3, x="Blocks", y="Rewards",title="Average Reward per Block")
+			fig3.update_layout(yaxis_range=[0, 165])
+			plot(fig3,filename='fig2.html',auto_open=True)
+		
+			fig2 = px.box(df4, x="Blocks", y="Norm_Dist",title="Average Normalized Distance per Block")
+			fig2.update_layout(yaxis_range=[0, 3])
+			plot(fig2,filename='fig3.html',auto_open=True)
+		
 			
 
 
@@ -277,12 +439,15 @@ def plot_rewards_and_norm_dist(files):
 
 
 	blocks=range(0,8)
+	if compare:
+		return df3["Rewards"],df3["Blocks"],df4["Norm_Dist"],df4["Blocks"],avg_rewards,std_rewards,avg_norm_dist,std_norm_dist
 	plt.plot(blocks, avg_rewards, color='tab:blue', label='stim')
 	plt.fill_between(blocks, np.array(avg_rewards) - np.array(std_rewards), np.array(avg_rewards) + np.array(std_rewards), color='tab:blue', alpha=0.3)
 	plt.xlabel("Block")
 	plt.ylabel("Reward")
 	plt.title('Reward per Block')
 	plt.grid(True)
+	plt.ylim(0,165)
 	plt.show()
 
 	plt.plot(blocks, avg_norm_dist, color='tab:blue', label='stim')
@@ -291,6 +456,7 @@ def plot_rewards_and_norm_dist(files):
 	plt.ylabel("Normalised Distance")
 	plt.title('Normalised Distance per Block')
 	plt.grid(True)
+	plt.ylim(0,3)
 	plt.show()
 
 def plot_heatmap_with_coverage(batch_number, filepaths, steps_filepaths, games_per_batch=10, threshold=0, max_x=-0.18, min_x=-0.349, max_y=0.330, min_y=0.170, smoothing_sigma=0.3, ax=None):
@@ -339,10 +505,11 @@ def plot_heatmap_with_coverage(batch_number, filepaths, steps_filepaths, games_p
 
     # Plotting the smoothed heatmap
     if ax is None:
-        plt.figure(figsize=(8, 6), facecolor='white')
+       	plt.figure(figsize=(8, 6), facecolor='white')
+
     im=ax.imshow(smoothed_heatmap.T, extent=[xedges[0], xedges[-1], yedges[0], yedges[-1]], origin='lower', cmap='YlGn', aspect='auto')
-    #cbar = plt.colorbar(im, ax=ax)
-    #cbar.set_label('Counts')
+    cbar = plt.colorbar(im, ax=ax)
+    cbar.set_label('Counts')
     if ax is None:
         plt.colorbar(label='Counts')
         plt.title(f"Smoothed Heatmap of Positions in Batch {batch_number} ")
@@ -358,16 +525,161 @@ def plot_heatmap_with_coverage(batch_number, filepaths, steps_filepaths, games_p
 
 expert_test_data=[]
 expert_steps_test_data=[]
+expert_test_data2=[]
+expert_steps_test_data2=[]
+expert_test_data6=[]
+expert_steps_test_data6=[]
+expert_test_data3=[]
+expert_steps_test_data3=[]
+expert_test_data4=[]
+expert_steps_test_data4=[]
+expert_test_data5=[]
+expert_steps_test_data5=[]
 
 plot_path_graph(file_rl_data)
-plot_wins(file_data)
-plot_rewards_and_norm_dist(file_data)
-for expert_test_data_file, expert_steps_test_data_file in zip(file_data, file_rl_data):
+
+#plot just for one run or for one method. No comparison
+plot_wins(file_data,False)
+plot_rewards_and_norm_dist(file_data,False)
+
+#compare 2 different methods
+wins_box_per_method=[]
+blocks_box_per_method=[]
+avg_wins_per_method=[]
+std_wins_per_method=[]
+blocks_per_method=[]
+Rewards_box_per_method=[]
+Blocks_box_r_per_method=[]
+Norm_Dist_box_per_method=[]
+Blocks_box_n_per_method=[]
+avg_rewards_per_method=[]
+std_rewards_per_method=[]
+avg_norm_dist_per_method=[]
+std_norm_dist_per_method=[]
+
+methods_data=[method_3_data,method_4_data,method_5_data,method_6_data,method_2_data,method_1_data]
+for i in range(len(methods_data)):
+	wins_box,blocks_box, avg_wins, std_wins, blocks=plot_wins(methods_data[i],True)
+	Rewards_box,Blocks_box_r,Norm_Dist_box,Blocks_box_n,avg_rewards,std_rewards,avg_norm_dist,std_norm_dist=plot_rewards_and_norm_dist(methods_data[i],True)
+	wins_box_per_method.append(wins_box)
+	blocks_box_per_method.append(blocks_box)
+	avg_wins_per_method.append(avg_wins)
+	std_wins_per_method.append(std_wins)
+	blocks_per_method.append(blocks)
+	Rewards_box_per_method.append(Rewards_box)
+	Blocks_box_r_per_method.append(Blocks_box_r)
+	Norm_Dist_box_per_method.append(Norm_Dist_box)
+	Blocks_box_n_per_method.append(Blocks_box_n)
+	avg_rewards_per_method.append(avg_rewards)
+	std_rewards_per_method.append(std_rewards)
+	avg_norm_dist_per_method.append(avg_norm_dist)
+	std_norm_dist_per_method.append(std_norm_dist)
+
+
+
+methods_names=["Non Normalized data 98K, per 10, 4 states","Non Normalized data 98K, per 10, 4 states (loosing)","Non Normalized data 98K, per 10, 2 states","Non Normalized data 98K, per 1, 2 states","Non Normalized data 35K, per 1, 2 states","Normalized data 35K, per 1, 4 states"]
+colours=['#D93D11','#5AD911','#1AEDDF','#ED1ACA','#3D9970','#FF4136',]
+
+data_plot_wins = []
+data_plot_rewards = []
+data_plot_norm_dist = []
+
+for i in range(len(methods_names)):
+    for reward, block in zip(Rewards_box_per_method[i], Blocks_box_r_per_method[i]):
+        data_plot_rewards.append({
+            "Reward": reward,
+            "Block": block,
+            "Method": methods_names[i]
+        })
+    for win, block in zip(wins_box_per_method[i], blocks_box_per_method[i]):
+    	    data_plot_wins.append({
+            	"Wins": win,
+            	"Block": block,
+            	"Method": methods_names[i]
+        })
+    for norm_dist, block in zip(Norm_Dist_box_per_method[i], Blocks_box_n_per_method[i]):
+        data_plot_norm_dist.append({
+            "Norm_Dist": norm_dist,
+            "Block": block,
+            "Method": methods_names[i]
+        })
+df_wins = pd.DataFrame(data_plot_wins)
+df_rew = pd.DataFrame(data_plot_rewards)
+df_nd = pd.DataFrame(data_plot_norm_dist)
+fig_wins2 = px.box(
+    df_wins,
+    x="Block",
+    y="Wins",
+    color="Method",
+    color_discrete_sequence=colours,
+    title="Average wins per block"
+)
+fig_rew = px.box(
+    df_rew,
+    x="Block",
+    y="Reward",
+    color="Method",
+    color_discrete_sequence=colours,
+    title="Average reward per block"
+)
+fig_nd = px.box(
+    df_nd,
+    x="Block",
+    y="Norm_Dist",
+    color="Method",
+    color_discrete_sequence=colours,
+    title="Average Normalized Distance per block"
+)
+fig_wins2.update_layout(
+    yaxis=dict(
+        title="Average Wins",
+        range=[0, 11],
+        autorange=False,
+        dtick=1
+    )
+)
+fig_rew.update_layout(
+    yaxis=dict(
+        title="Average Reward",
+        range=[0, 165],
+        autorange=False
+        
+    )
+)
+fig_nd.update_layout(
+    yaxis=dict(
+        title="Average Normalized Distance",
+        range=[0, 3],
+        autorange=False,
+        dtick=1
+    )
+)
+plot(fig_wins2,filename='fig_wins2.html',auto_open=True)
+plot(fig_rew,filename='fig_rew.html',auto_open=True)
+plot(fig_nd,filename='fig_nd.html',auto_open=True)
+
+for expert_test_data_file, expert_steps_test_data_file in zip(method_1_data, method_1_rl_data):
+    a=np.loadtxt(expert_steps_test_data_file, delimiter=',', skiprows=1)
+    #if positions are normalized, take the original
+    for i in range(len(a)):
+    	a[i][2]=(max_x-min_x)*a[i][2]+min_x
+    	a[i][3]=(max_y-min_y)*a[i][3]+min_y
+    	a[i][6]=(max_x-min_x)*a[i][6]+min_x
+    	a[i][7]=(max_y-min_y)*a[i][7]+min_y
     expert_test_data.append(np.loadtxt(expert_test_data_file, delimiter=',', skiprows=1))
-    expert_steps_test_data.append(np.loadtxt(expert_steps_test_data_file, delimiter=',', skiprows=1))
+    expert_steps_test_data.append(a)
+for expert_test_data_file2, expert_steps_test_data_file2 in zip(method_2_data, method_2_rl_data):
+    a=np.loadtxt(expert_steps_test_data_file2, delimiter=',', skiprows=1)
+    expert_test_data2.append(np.loadtxt(expert_test_data_file2, delimiter=',', skiprows=1))
+    expert_steps_test_data2.append(a)
+for expert_test_data_file6, expert_steps_test_data_file6 in zip(method_6_data, method_6_rl_data):
+    a=np.loadtxt(expert_steps_test_data_file6, delimiter=',', skiprows=1)
+    expert_test_data6.append(np.loadtxt(expert_test_data_file6, delimiter=',', skiprows=1))
+    expert_steps_test_data6.append(a)
+
 batches_to_collect = [0, 3, 5]
 col_labels = ["Baseline", "Block 3", "Block 6"]
-row_labels = ["Expert"]
+row_labels = ["Normalized 35K, 4s, per 1","Non Normalized 35K, 2s, per 1","Non Normalized 98K, 2s, per 1"]
 num_rows=len(row_labels)
 num_cols=len(col_labels)
 fig = plt.figure(figsize=(13, 5))
@@ -390,10 +702,60 @@ for row in range(num_rows):
             plot_heatmap_with_coverage(batch_number, expert_test_data, expert_steps_test_data, ax=ax)
         elif group_idx == 1:
             # TL Participant
-            plot_heatmap_with_coverage(batch_number, TL_test_data, TL_steps_test_data, ax=ax)
+            plot_heatmap_with_coverage(batch_number, expert_test_data2, expert_steps_test_data2, ax=ax)
         elif group_idx == 2:
             # No TL Participant
-            plot_heatmap_with_coverage(batch_number, NO_TL_test_data, NO_TL_steps_test_data, ax=ax)
+            plot_heatmap_with_coverage(batch_number, expert_test_data6, expert_steps_test_data6, ax=ax)
+        
+
+        ax.set_title(title)
+
+# Adjust the layout
+plt.tight_layout()
+
+# Show the figure
+plt.show()
+for expert_test_data_file3, expert_steps_test_data_file3 in zip(method_3_data, method_3_rl_data):
+    a=np.loadtxt(expert_steps_test_data_file3, delimiter=',', skiprows=1)
+    expert_test_data3.append(np.loadtxt(expert_test_data_file3, delimiter=',', skiprows=1))
+    expert_steps_test_data3.append(a)
+for expert_test_data_file4, expert_steps_test_data_file4 in zip(method_4_data, method_4_rl_data):
+    a=np.loadtxt(expert_steps_test_data_file4, delimiter=',', skiprows=1)
+    expert_test_data4.append(np.loadtxt(expert_test_data_file4, delimiter=',', skiprows=1))
+    expert_steps_test_data4.append(a)
+for expert_test_data_file5, expert_steps_test_data_file5 in zip(method_5_data, method_5_rl_data):
+    a=np.loadtxt(expert_steps_test_data_file5, delimiter=',', skiprows=1)
+    expert_test_data5.append(np.loadtxt(expert_test_data_file5, delimiter=',', skiprows=1))
+    expert_steps_test_data5.append(a)
+batches_to_collect = [0, 3, 5]
+col_labels = ["Baseline", "Block 3", "Block 6"]
+row_labels = ["Normalized 98K, 4s, per 10","Non Normalized 98K, 4s, per 10(loosing)","Non Normalized 98K, 2s, per 10"]
+num_rows=len(row_labels)
+num_cols=len(col_labels)
+fig = plt.figure(figsize=(13, 5))
+for row in range(num_rows):
+    for col in range(num_cols):
+        subplot_idx = row * num_cols + col + 1
+        ax = fig.add_subplot(num_rows, num_cols, subplot_idx)
+
+        # Determine the group based on the row (0 for Experts, 1 for TL, 2 for No TL)
+        group_idx = row
+
+        # Get the batch number based on the column
+        batch_number = batches_to_collect[col]
+
+        # Construct a title based on the labels and batch number
+        title = f"{row_labels[group_idx]} - {col_labels[col]}"
+
+        if group_idx == 0:
+            # Expert
+            plot_heatmap_with_coverage(batch_number, expert_test_data3, expert_steps_test_data3, ax=ax)
+        elif group_idx == 1:
+            # TL Participant
+            plot_heatmap_with_coverage(batch_number, expert_test_data4, expert_steps_test_data4, ax=ax)
+        elif group_idx == 2:
+            # No TL Participant
+            plot_heatmap_with_coverage(batch_number, expert_test_data5, expert_steps_test_data5, ax=ax)
         
 
         ax.set_title(title)
