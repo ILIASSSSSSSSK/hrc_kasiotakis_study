@@ -48,7 +48,8 @@ file_rl_data=[#"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/ga
 #"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/35K_every10_uniform_200ms_itsmetheexpert_LfD_TL_2/data/rl_test_data.csv",
 #"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/35K_every10_uniform_200ms_itsmetheexpert_LfD_TL_1/data/rl_test_data.csv",
 #"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/35K_every10_uniform_200ms_itsmetheexpert_LfD_TL_4/data/rl_test_data.csv",
-"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/35K_every10_uniform_200ms_itsmetheexpert_LfD_TL_8/data/rl_test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_56/data/rl_test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_56/data/rl_test_data.csv",
 ]
 file_data=[#"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_1/data/test_data.csv",
 #"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_2/data/test_data.csv",
@@ -78,8 +79,8 @@ file_data=[#"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games
 #"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/35K_every10_uniform_200ms_itsmetheexpert_LfD_TL_2/data/test_data.csv",
 #"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/35K_every10_uniform_200ms_itsmetheexpert_LfD_TL_1/data/test_data.csv",
 #"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/35K_every10_uniform_200ms_itsmetheexpert_LfD_TL_4/data/test_data.csv",
-"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/35K_every10_uniform_200ms_itsmetheexpert_LfD_TL_8/data/test_data.csv",
-
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_56/data/test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_56/data/test_data.csv",
 ]
 
 #comparison between different methods 
@@ -122,6 +123,37 @@ method_6_data=["/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/ga
 "/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_45/data/test_data.csv",
 "/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_46/data/test_data.csv"]
 
+method_7_data=["/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_50/data/test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_49/data/test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_48/data/test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_47/data/test_data.csv",]
+
+method_8_data=["/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_51/data/test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_52/data/test_data.csv","/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_54/data/test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_55/data/test_data.csv",]
+
+method_9_data=["/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_60/data/test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_57/data/test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_58/data/test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_59/data/test_data.csv",]
+
+real_robot_method_7=["/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_56/data/test_data.csv","/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_56/data/test_data.csv"]
+real_robot_method_7_rl=["/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_56/data/rl_test_data.csv","/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_56/data/rl_test_data.csv"]
+
+method_9_rl_data=["/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_60/data/rl_test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_57/data/rl_test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_58/data/rl_test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_59/data/rl_test_data.csv",]
+
+method_8_rl_data=["/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_51/data/rl_test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_51/data/rl_test_data.csv","/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_54/data/rl_test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_55/data/rl_test_data.csv",
+]
+
+method_7_rl_data=["/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_50/data/rl_test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_49/data/rl_test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_48/data/rl_test_data.csv",
+"/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/98K_every10_uniform_200ms_itsmetheexpert_LfD_TL_47/data/rl_test_data.csv",]
 
 method_1_rl_data=[
 "/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/games_info/35K_every10_uniform_200ms_itsmetheexpert_LfD_TL_8/data/rl_test_data.csv",
@@ -505,7 +537,7 @@ def plot_heatmap_with_coverage(batch_number, filepaths, steps_filepaths, games_p
 
     # Plotting the smoothed heatmap
     if ax is None:
-       	plt.figure(figsize=(8, 6), facecolor='white')
+       	plt.figure(figsize=(8, 8), facecolor='white')
 
     im=ax.imshow(smoothed_heatmap.T, extent=[xedges[0], xedges[-1], yedges[0], yedges[-1]], origin='lower', cmap='YlGn', aspect='auto')
     cbar = plt.colorbar(im, ax=ax)
@@ -535,7 +567,15 @@ expert_test_data4=[]
 expert_steps_test_data4=[]
 expert_test_data5=[]
 expert_steps_test_data5=[]
+expert_test_data7=[]
+expert_steps_test_data7=[]
 
+expert_test_data8=[]
+expert_steps_test_data8=[]
+expert_test_data9=[]
+expert_steps_test_data9=[]
+expert_test_data_real_robot=[]
+expert_steps_test_data_real_robot=[]
 plot_path_graph(file_rl_data)
 
 #plot just for one run or for one method. No comparison
@@ -557,7 +597,7 @@ std_rewards_per_method=[]
 avg_norm_dist_per_method=[]
 std_norm_dist_per_method=[]
 
-methods_data=[method_3_data,method_4_data,method_5_data,method_6_data,method_2_data,method_1_data]
+methods_data=[method_3_data,method_4_data,method_5_data,method_6_data,method_2_data,method_1_data,method_7_data,method_8_data,method_9_data,real_robot_method_7]
 for i in range(len(methods_data)):
 	wins_box,blocks_box, avg_wins, std_wins, blocks=plot_wins(methods_data[i],True)
 	Rewards_box,Blocks_box_r,Norm_Dist_box,Blocks_box_n,avg_rewards,std_rewards,avg_norm_dist,std_norm_dist=plot_rewards_and_norm_dist(methods_data[i],True)
@@ -577,8 +617,8 @@ for i in range(len(methods_data)):
 
 
 
-methods_names=["Non Normalized data 98K, per 10, 4 states","Non Normalized data 98K, per 10, 4 states (loosing)","Non Normalized data 98K, per 10, 2 states","Non Normalized data 98K, per 1, 2 states","Non Normalized data 35K, per 1, 2 states","Normalized data 35K, per 1, 4 states"]
-colours=['#D93D11','#5AD911','#1AEDDF','#ED1ACA','#3D9970','#FF4136',]
+methods_names=["Non Normalized data 98K, per 10, 4 states","Non Normalized data 98K, per 10, 4 states (loosing)","Non Normalized data 98K, per 10, 2 states","Non Normalized data 98K, per 1, 2 states","Non Normalized data 35K, per 1, 2 states","Normalized data 35K, per 1, 4 states","Normalized data 98K, per 10, 4 states","Normalized data 98K, per 10, 4 states, greedy","Normalized data 98K, per 10, 2 states", "real robot, normalized data, per 10, 4 states"]
+colours=['#D93D11','#5AD911','#1AEDDF','#ED1ACA','#3D9970','#595c57','#F7C705','#f50a1d','#f7b100','#00f7c2']
 
 data_plot_wins = []
 data_plot_rewards = []
@@ -682,7 +722,7 @@ col_labels = ["Baseline", "Block 3", "Block 6"]
 row_labels = ["Normalized 35K, 4s, per 1","Non Normalized 35K, 2s, per 1","Non Normalized 98K, 2s, per 1"]
 num_rows=len(row_labels)
 num_cols=len(col_labels)
-fig = plt.figure(figsize=(13, 5))
+fig = plt.figure(figsize=(14, 14))
 for row in range(num_rows):
     for col in range(num_cols):
         subplot_idx = row * num_cols + col + 1
@@ -729,10 +769,10 @@ for expert_test_data_file5, expert_steps_test_data_file5 in zip(method_5_data, m
     expert_steps_test_data5.append(a)
 batches_to_collect = [0, 3, 5]
 col_labels = ["Baseline", "Block 3", "Block 6"]
-row_labels = ["Normalized 98K, 4s, per 10","Non Normalized 98K, 4s, per 10(loosing)","Non Normalized 98K, 2s, per 10"]
+row_labels = ["Non Normalized 98K, 4s, per 10","Non Normalized 98K, 4s, per 10(loosing)","Non Normalized 98K, 2s, per 10"]
 num_rows=len(row_labels)
 num_cols=len(col_labels)
-fig = plt.figure(figsize=(13, 5))
+fig = plt.figure(figsize=(14, 14))
 for row in range(num_rows):
     for col in range(num_cols):
         subplot_idx = row * num_cols + col + 1
@@ -756,6 +796,118 @@ for row in range(num_rows):
         elif group_idx == 2:
             # No TL Participant
             plot_heatmap_with_coverage(batch_number, expert_test_data5, expert_steps_test_data5, ax=ax)
+        
+
+        ax.set_title(title)
+
+# Adjust the layout
+plt.tight_layout()
+
+# Show the figure
+plt.show()
+for expert_test_data_file7, expert_steps_test_data_file7 in zip(method_7_data, method_7_rl_data):
+    a=np.loadtxt(expert_steps_test_data_file7, delimiter=',', skiprows=1)
+    #if positions are normalized, take the original
+    for i in range(len(a)):
+    	a[i][2]=(max_x-min_x)*a[i][2]+min_x
+    	a[i][3]=(max_y-min_y)*a[i][3]+min_y
+    	a[i][6]=(max_x-min_x)*a[i][6]+min_x
+    	a[i][7]=(max_y-min_y)*a[i][7]+min_y
+    expert_test_data7.append(np.loadtxt(expert_test_data_file7, delimiter=',', skiprows=1))
+    expert_steps_test_data7.append(a)
+
+for expert_test_data_file8, expert_steps_test_data_file8 in zip(method_8_data, method_8_rl_data):
+    a=np.loadtxt(expert_steps_test_data_file8, delimiter=',', skiprows=1)
+    #if positions are normalized, take the original
+    for i in range(len(a)):
+    	a[i][2]=(max_x-min_x)*a[i][2]+min_x
+    	a[i][3]=(max_y-min_y)*a[i][3]+min_y
+    	a[i][6]=(max_x-min_x)*a[i][6]+min_x
+    	a[i][7]=(max_y-min_y)*a[i][7]+min_y
+    expert_test_data8.append(np.loadtxt(expert_test_data_file8, delimiter=',', skiprows=1))
+    expert_steps_test_data8.append(a)
+
+for expert_test_data_file9, expert_steps_test_data_file9 in zip(method_9_data, method_9_rl_data):
+    a=np.loadtxt(expert_steps_test_data_file9, delimiter=',', skiprows=1)
+    #if positions are normalized, take the original
+    for i in range(len(a)):
+    	a[i][2]=(max_x-min_x)*a[i][2]+min_x
+    	a[i][3]=(max_y-min_y)*a[i][3]+min_y
+    	a[i][6]=(max_x-min_x)*a[i][6]+min_x
+    	a[i][7]=(max_y-min_y)*a[i][7]+min_y
+    expert_test_data9.append(np.loadtxt(expert_test_data_file9, delimiter=',', skiprows=1))
+    expert_steps_test_data9.append(a)
+
+for expert_test_data_file_real_robot, expert_steps_test_data_file_real_robot in zip(real_robot_method_7, real_robot_method_7_rl):
+    a=np.loadtxt(expert_steps_test_data_file_real_robot, delimiter=',', skiprows=1)
+    #if positions are normalized, take the original
+    for i in range(len(a)):
+    	a[i][2]=(max_x-min_x)*a[i][2]+min_x
+    	a[i][3]=(max_y-min_y)*a[i][3]+min_y
+    	a[i][6]=(max_x-min_x)*a[i][6]+min_x
+    	a[i][7]=(max_y-min_y)*a[i][7]+min_y
+    expert_test_data_real_robot.append(np.loadtxt(expert_test_data_file_real_robot, delimiter=',', skiprows=1))
+    expert_steps_test_data_real_robot.append(a)
+
+col_labels = ["Baseline", "Block 3", "Block 6"]
+row_labels = ["Normalized 98K, 4s, per 10","Normalized 98K, 4s, per 10, greedy","Normalized 98K, 2s, per 10"]
+num_rows=len(row_labels)
+num_cols=len(col_labels)
+fig = plt.figure(figsize=(14, 14))
+for row in range(num_rows):
+    for col in range(num_cols):
+        subplot_idx = row * num_cols + col + 1
+        ax = fig.add_subplot(num_rows, num_cols, subplot_idx)
+
+        # Determine the group based on the row (0 for Experts, 1 for TL, 2 for No TL)
+        group_idx = row
+
+        # Get the batch number based on the column
+        batch_number = batches_to_collect[col]
+
+        # Construct a title based on the labels and batch number
+        title = f"{row_labels[group_idx]} - {col_labels[col]}"
+
+        if group_idx == 0:
+            # Expert
+            plot_heatmap_with_coverage(batch_number, expert_test_data7, expert_steps_test_data7, ax=ax)
+        elif group_idx == 1:
+            # TL Participant
+            plot_heatmap_with_coverage(batch_number, expert_test_data8, expert_steps_test_data8, ax=ax)
+        elif group_idx == 2:
+            # No TL Participant
+            plot_heatmap_with_coverage(batch_number, expert_test_data9, expert_steps_test_data9, ax=ax)
+        
+
+        ax.set_title(title)
+col_labels = ["Baseline", "Block 3", "Block 6"]
+row_labels = ["Normalized 98K, 4s, per 10, real robot"]
+num_rows=len(row_labels)
+num_cols=len(col_labels)
+fig = plt.figure(figsize=(12, 4))
+for row in range(num_rows):
+    for col in range(num_cols):
+        subplot_idx = row * num_cols + col + 1
+        ax = fig.add_subplot(num_rows, num_cols, subplot_idx)
+
+        # Determine the group based on the row (0 for Experts, 1 for TL, 2 for No TL)
+        group_idx = row
+
+        # Get the batch number based on the column
+        batch_number = batches_to_collect[col]
+
+        # Construct a title based on the labels and batch number
+        title = f"{row_labels[group_idx]} - {col_labels[col]}"
+
+        if group_idx == 0:
+            # Expert
+            plot_heatmap_with_coverage(batch_number, expert_test_data_real_robot, expert_steps_test_data_real_robot, ax=ax)
+        elif group_idx == 1:
+            # TL Participant
+            plot_heatmap_with_coverage(batch_number, expert_test_data8, expert_steps_test_data8, ax=ax)
+        elif group_idx == 2:
+            # No TL Participant
+            plot_heatmap_with_coverage(batch_number, expert_test_data9, expert_steps_test_data9, ax=ax)
         
 
         ax.set_title(title)

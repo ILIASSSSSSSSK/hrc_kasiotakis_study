@@ -49,6 +49,8 @@ class RL_Control:
 		self.min_vel_x=rospy.get_param("rl_control/Experiment/ee_vel_x_min",-0.2)
 		self.max_vel_y=rospy.get_param("rl_control/Experiment/ee_vel_y_max",0.2)
 		self.min_vel_y=rospy.get_param("rl_control/Experiment/ee_vel_y_min",0.2)
+		self.greedy_test=rospy.get_param("rl_control/Experiment/greedy",False)
+
 		self.min_x=rospy.get_param("robot_movement_generation/min_x",-0.356)
 		self.min_y=rospy.get_param("robot_movement_generation/min_y",0.162)
 		self.max_x=rospy.get_param("robot_movement_generation/max_x",-0.174)
@@ -426,9 +428,25 @@ class RL_Control:
 		if randomness_request <= self.randomness_threshold:
 			# Pure exploration
 			self.agent_action = np.random.randint(self.agent.n_actions)
+			print("I am in randint")
 		else:
-			# Explore with actions_prob
-			self.agent_action = self.agent.actor.sample_act(self.observation)
+			#if you are in training
+			if not self.test_agent_flag:
+				# Explore with actions_prob
+				self.agent_action = self.agent.actor.sample_act(self.observation)
+				print("I am in sample")
+			
+			#my code: in testing have greedy action or sampled action
+			else:
+				if self.greedy_test:
+					self.agent_action = self.agent.actor.greedy_act(self.observation)
+					print("I am in greedy")
+				else:
+					self.agent_action = self.agent.actor.sample_act(self.observation)
+					print("I am in sample")
+			#end of my code
+
+			
 		if self.test_agent_flag:
 			self.save_models = False
 		else:
@@ -728,7 +746,10 @@ if __name__ == "__main__":
 	_, data_dir, plot_dir = get_save_dir(load_model_for_training)
 	game = RL_Control()
 
-	
+	if game.normalized==True:
+			rospy.logwarn("The user has selected normalized features")
+	else:
+			rospy.logwarn("User has selected the real values of the features")
 	start_experiment_time = rospy.get_time()
 	if (rospy.get_param("/rl_control/Game/gazebo_simulation",False)):
 		spawn_marker('simple_cylinder',-0.333,-0.346)
