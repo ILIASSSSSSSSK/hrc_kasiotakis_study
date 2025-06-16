@@ -31,7 +31,7 @@ Game:
   start_audio: ["beep-07a.mp3", "beep-09.mp3"] # audio for starting the game
   rest_period: 15 # rest period between training-testing batches
   ppr_threshold: 0.7 # initial ppr probability
-  number_of_states: 4 #number of how many elements are on the state (2: posx and pos y, 4: velx and vely included)
+  number_of_states: 2 #number of how many elements are on the state (2: posx and pos y, 4: velx and vely included)
   random_position: False #if its true then go to a random initial position after each game. If its False go cyclic to each position
   gazebo_simulation: True #if true then you are playing in the simulation, if not you are playing with the real robot
   init_cyclic_pos: 0 #The first position the end effector is going to go if we are moving cyclical
@@ -60,17 +60,18 @@ Experiment:
   start_training_on_episode: 10 # Will not train the agent before this trial
   stop_random_agent: 10 #10 Stop using random agent on this trial and start using SAC####
   learn_every_n_episodes: 10 # Perform offline gradient updates after every `learn_every_n_episodes` episodes
-  total_update_cycles: 35000  #7000 Total number of offline gradient updates throughout the whole experiment
+  total_update_cycles: 98000  #7000 Total number of offline gradient updates throughout the whole experiment
   reward_scale: 2 # Scale for the reward
   number_of_agent_actions: 3 # number of discrete actions
   win_reward: 10 # reward at win
   lose_reward: -1 # reward at every non-win state
-  update_per_game: True #"True" if you want to have update of NN parameters after each game in training or "False" if you want to update after the whole training block is finished
+  update_per_game: False #"True" if you want to have update of NN parameters after each game in training or "False" if you want to update after the whole training block is finished
   normalized: True #if you want your data to be normalized set it to true, else false
   ee_vel_x_max: 0.012
   ee_vel_y_max: 0.07
   ee_vel_x_min: -0.011
   ee_vel_y_min: -0.014
+  greedy: False #if this parameter is true the in testing you dont take a sample from the distribution but the action with the highest probability
 
 
   test:
